@@ -1,0 +1,11 @@
+collectors:
+  enabled: service,logical_disk,memory,cpu,process,cs
+collector:
+  service:
+    services-where: "Name='windows_exporter' or Name LIKE '1c%'"
+  process:
+    whitelist: "(rphost|ragent|rmngr|dbgs).*"
+  logical_disk:
+    volume-blacklist: "P:"
+log:
+  level: warn
